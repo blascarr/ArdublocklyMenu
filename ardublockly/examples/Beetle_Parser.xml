@@ -1,0 +1,1517 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="procedures_defnoreturn" id="(]acyX}XQ3o.[##8uz.T" x="-484" y="-142">
+    <field name="NAME">forward</field>
+    <comment pinned="false" h="80" w="160">Describe this function...</comment>
+    <statement name="STACK">
+      <block type="procedures_callnoreturn" id="lQiX5lpo*L?_YcKKo#J1">
+        <mutation name="Servo_attach"></mutation>
+        <next>
+          <block type="servo_move" id="coo+5h2=}!#@[hG@Pqb@">
+            <field name="servo_instance">LeftServo</field>
+            <value name="angle">
+              <block type="math_number" id="0_(Zu7n?{a)A***E(i#D">
+                <field name="NUM">0</field>
+              </block>
+            </value>
+            <next>
+              <block type="servo_move" id="@7?P}!3w|N9llHa{!%Jn">
+                <field name="servo_instance">RightServo</field>
+                <value name="angle">
+                  <block type="math_number" id="Dxa(94[OG^W]JC{~cVuX">
+                    <field name="NUM">180</field>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="LN5ur}Y*WjnRUT=G3)=-" x="-485" y="-1">
+    <field name="NAME">backwards</field>
+    <comment pinned="false" h="80" w="160">Describe this function...</comment>
+    <statement name="STACK">
+      <block type="procedures_callnoreturn" id="{/U/K!K-DO|Gzn70:_8g">
+        <mutation name="Servo_attach"></mutation>
+        <next>
+          <block type="servo_move" id="(:Ascpr*~(|%HMhlxtd8">
+            <field name="servo_instance">LeftServo</field>
+            <value name="angle">
+              <block type="math_number" id=",FaHZRVX}_!r0cH~}OkY">
+                <field name="NUM">180</field>
+              </block>
+            </value>
+            <next>
+              <block type="servo_move" id="17++uowtl50cTH(Y/bOX">
+                <field name="servo_instance">RightServo</field>
+                <value name="angle">
+                  <block type="math_number" id="x7K^5q`T-gJK9F~Kj5uB">
+                    <field name="NUM">0</field>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="serial_setup" id="B6H6Ir69lQva55djCLC(" x="70" y="67">
+    <field name="SERIAL_ID">Serial</field>
+    <field name="SPEED">38400</field>
+  </block>
+  <block type="ss_setup" id="Xa[E@nwx2?K2L0D;?8l^" x="69" y="100">
+    <field name="ss_instance">comm</field>
+    <field name="ss_bps">38400</field>
+    <value name="RX">
+      <block type="math_number" id=",|-c6@c-LrxzR^BM.;kP">
+        <field name="NUM">2</field>
+      </block>
+    </value>
+    <value name="TX">
+      <block type="math_number" id="gqe5T|taT3e?2vWU,mNb">
+        <field name="NUM">3</field>
+      </block>
+    </value>
+  </block>
+  <block type="procedures_defnoreturn" id="jE|g46WvXaY|lDYP8t+1" x="-485" y="141">
+    <field name="NAME">turn_left</field>
+    <comment pinned="false" h="80" w="160">Describe this function...</comment>
+    <statement name="STACK">
+      <block type="procedures_callnoreturn" id="9k^bR24zM#ht]y:6En{s">
+        <mutation name="Servo_attach"></mutation>
+        <next>
+          <block type="servo_move" id="|_H0NCZ?gh~):t4[|SFj">
+            <field name="servo_instance">LeftServo</field>
+            <value name="angle">
+              <block type="math_number" id="{f1{ZCY_0}c_MX:2`~uW">
+                <field name="NUM">180</field>
+              </block>
+            </value>
+            <next>
+              <block type="servo_move" id="TfHPpmxWPvNPw1I0q=#1">
+                <field name="servo_instance">RightServo</field>
+                <value name="angle">
+                  <block type="math_number" id="a3tY_A0{-_a[xe[IZE*|">
+                    <field name="NUM">180</field>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="arduparser_setup" id="eb*ZrtJ4~?_YM=9:rqAH" x="67" y="184">
+    <field name="parser_instance">BTParser</field>
+    <value name="START_CMD">
+      <block type="text" id="UF+ta(8wU~XPXOGtsSrG">
+        <field name="TEXT">&lt;</field>
+      </block>
+    </value>
+    <value name="DELIMITER_CMD">
+      <block type="text" id="E,GX8C~)/G^jMHgdk/6k">
+        <field name="TEXT">|</field>
+      </block>
+    </value>
+    <value name="END_CMD">
+      <block type="text" id="tlj;rl*^zhx6!!UASqMh">
+        <field name="TEXT">&gt;</field>
+      </block>
+    </value>
+  </block>
+  <block type="arduino_functions" id="g(2BX?1VD:6RT@I!}2f6" x="68" y="230">
+    <statement name="SETUP_FUNC">
+      <block type="variables_set" id="uW;c2)#q1fW9mIyAx|la">
+        <field name="VAR">status</field>
+        <value name="VALUE">
+          <block type="variables_set_type" id="K]g*]6n}rjvPznD6ls{#">
+            <field name="VARIABLE_SETTYPE_TYPE">TEXT</field>
+            <value name="VARIABLE_SETTYPE_INPUT">
+              <block type="text" id="Ak`kW=E~bv+)3zzrGo,b">
+                <field name="TEXT">MANUAL</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <next>
+          <block type="servo_attach" id="M~7fp`V/LKWdx}%MJ1@Y">
+            <field name="servo_instance">ClawServo</field>
+            <value name="servoPIN">
+              <block type="math_number" id="7R0)dUDW|BQwbvt#J~J9">
+                <field name="NUM">6</field>
+              </block>
+            </value>
+            <next>
+              <block type="servo_attach" id="9v5mk0il`WLlq}Nj3(w)">
+                <field name="servo_instance">LeftServo</field>
+                <value name="servoPIN">
+                  <block type="math_number" id="L1:#!aSDEi^v1fw#Zvco">
+                    <field name="NUM">9</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="servo_attach" id="3lWTlNd^8tfMUb;u^KHc">
+                    <field name="servo_instance">RightServo</field>
+                    <value name="servoPIN">
+                      <block type="math_number" id="nkq,:UXnj9%F5fg.Locr">
+                        <field name="NUM">10</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="variables_set" id="SLx}/?m8l5BYl:G3[)uu">
+                        <field name="VAR">BTData</field>
+                        <value name="VALUE">
+                          <block type="variables_set_type" id="DO#4mnMDEgRGgAe/dx?I">
+                            <field name="VARIABLE_SETTYPE_TYPE">CHARACTER</field>
+                            <value name="VARIABLE_SETTYPE_INPUT">
+                              <block type="char_type" id="a!ml#H#o]:KT!26N)=VQ">
+                                <field name="char">0</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="variables_set" id="1+f=_*_Q?U7FXLk8%)1p">
+                            <field name="VAR">BTString</field>
+                            <value name="VALUE">
+                              <block type="variables_set_type" id="9mVl2JK3!Ptu;w;SD@{*">
+                                <field name="VARIABLE_SETTYPE_TYPE">TEXT</field>
+                                <value name="VARIABLE_SETTYPE_INPUT">
+                                  <block type="text" id=";|LI_m?H)*yHS@P^7LQw">
+                                    <field name="TEXT"></field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="variables_set" id="Bn!1D=rY1Kl%gP4a55TD">
+                                <field name="VAR">ParserData1</field>
+                                <value name="VALUE">
+                                  <block type="variables_set_type" id="xmO{eZo=Z-wI@F}pv~`[">
+                                    <field name="VARIABLE_SETTYPE_TYPE">TEXT</field>
+                                    <value name="VARIABLE_SETTYPE_INPUT">
+                                      <block type="text" id="9m@0SB/Pt#l/7c+5MN@`">
+                                        <field name="TEXT"></field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="variables_set" id=".IA#N8LNvy-iG6/eKQs4">
+                                    <field name="VAR">ParserData2</field>
+                                    <value name="VALUE">
+                                      <block type="variables_set_type" id="T_*q.m7IDhwPz@?_(,;6">
+                                        <field name="VARIABLE_SETTYPE_TYPE">TEXT</field>
+                                        <value name="VARIABLE_SETTYPE_INPUT">
+                                          <block type="text" id="d:vsuKkEnVL0_V.o#PS:">
+                                            <field name="TEXT"></field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="variables_set" id="kACZ`t86^Yd}asq{H]i/">
+                                        <field name="VAR">LDR_diff</field>
+                                        <value name="VALUE">
+                                          <block type="variables_set_type" id="^:b^sGa]D_sFqYY*.Ur(">
+                                            <field name="VARIABLE_SETTYPE_TYPE">NUMBER</field>
+                                            <value name="VARIABLE_SETTYPE_INPUT">
+                                              <block type="math_number" id="52VM3[Nh;*4!}rVt2Q=m">
+                                                <field name="NUM">0</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </value>
+                                        <next>
+                                          <block type="variables_set" id="q+B,/B8(6UtjZT]G!0e*">
+                                            <field name="VAR">threshold</field>
+                                            <value name="VALUE">
+                                              <block type="variables_set_type" id="ju3[ZhB(Fj]gnSE_f#@}">
+                                                <field name="VARIABLE_SETTYPE_TYPE">NUMBER</field>
+                                                <value name="VARIABLE_SETTYPE_INPUT">
+                                                  <block type="math_number" id="aJ+1P6J|7xUzf9ZX~bp6">
+                                                    <field name="NUM">300</field>
+                                                  </block>
+                                                </value>
+                                              </block>
+                                            </value>
+                                            <next>
+                                              <block type="variables_set" id="|q^[8*(grp^opu4ZKk_d">
+                                                <field name="VAR">diff_threshold</field>
+                                                <value name="VALUE">
+                                                  <block type="variables_set_type" id="]D@*^St%Y%T4dCZu;I%_">
+                                                    <field name="VARIABLE_SETTYPE_TYPE">NUMBER</field>
+                                                    <value name="VARIABLE_SETTYPE_INPUT">
+                                                      <block type="math_number" id="@G%,%a_Id%j3hY+6+]~7">
+                                                        <field name="NUM">100</field>
+                                                      </block>
+                                                    </value>
+                                                  </block>
+                                                </value>
+                                                <next>
+                                                  <block type="variables_set" id="0omi7kbPB![:l#N@sO1e">
+                                                    <field name="VAR">ClawMin</field>
+                                                    <value name="VALUE">
+                                                      <block type="variables_set_type" id="2n;x3Fd94]:q1d)LqC56">
+                                                        <field name="VARIABLE_SETTYPE_TYPE">NUMBER</field>
+                                                        <value name="VARIABLE_SETTYPE_INPUT">
+                                                          <block type="math_number" id="uT]4+}=8OP@N-*Q;C3=[">
+                                                            <field name="NUM">40</field>
+                                                          </block>
+                                                        </value>
+                                                      </block>
+                                                    </value>
+                                                    <next>
+                                                      <block type="variables_set" id="b%Kva;V@Ge=FR%)18V-c">
+                                                        <field name="VAR">ClawMax</field>
+                                                        <value name="VALUE">
+                                                          <block type="variables_set_type" id="KwO}olVf!g}xnfox_{17">
+                                                            <field name="VARIABLE_SETTYPE_TYPE">NUMBER</field>
+                                                            <value name="VARIABLE_SETTYPE_INPUT">
+                                                              <block type="math_number" id="BH(NJx1wIHU6P@1Q?st2">
+                                                                <field name="NUM">115</field>
+                                                              </block>
+                                                            </value>
+                                                          </block>
+                                                        </value>
+                                                      </block>
+                                                    </next>
+                                                  </block>
+                                                </next>
+                                              </block>
+                                            </next>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <statement name="LOOP_FUNC">
+      <block type="arduparser_setentry" id="{8d1KFQ|@cDG^:?UX.6V">
+        <field name="parser_instance">BTParser</field>
+        <value name="parser_entry">
+          <block type="io_highlow" id="aXYjc#o_e|:m_:ug{5qb">
+            <field name="STATE">LOW</field>
+          </block>
+        </value>
+        <next>
+          <block type="controls_if" id="fv9X[=nK-!RBB(+qA6Pd">
+            <value name="IF0">
+              <block type="ss_available" id="jEarLvF#DJ9=JA4iH:=S">
+                <field name="ss_instance">comm</field>
+              </block>
+            </value>
+            <statement name="DO0">
+              <block type="variables_set" id=")RhyF3BO_o%@!ewC5t)_">
+                <field name="VAR">BTData</field>
+                <value name="VALUE">
+                  <block type="peeksoftwareserial" id="zeSJBJVL3Hgtvdmij2K;">
+                    <field name="softwareSerial">comm</field>
+                    <field name="peek">TRUE</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="controls_if" id="2=V4wjUm=+]#CuvnxLaG">
+                    <mutation else="1"></mutation>
+                    <value name="IF0">
+                      <block type="logic_compare" id="Poh0t#pUyt~dk6A*,^FY">
+                        <field name="OP">EQ</field>
+                        <value name="A">
+                          <block type="variables_get" id="/|(it~q@8T7*=!l}6{C?">
+                            <field name="VAR">BTData</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="char_type" id="_5YJ@r~@!6o4I{*DyI#z">
+                            <field name="char">&lt;</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <statement name="DO0">
+                      <block type="variables_set" id="yqv%wW8ii!qH{JqJl0-z">
+                        <field name="VAR">BTString</field>
+                        <value name="VALUE">
+                          <block type="readsoftwareserial" id="?fXC@qi/!b0gT=QKzWA}">
+                            <field name="softwareSerial">comm</field>
+                            <field name="readString">TRUE</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="serial_print" id="8EX:Wc=d[Q5_CFJ/gM?1">
+                            <field name="SERIAL_ID">Serial</field>
+                            <field name="NEW_LINE">TRUE</field>
+                            <value name="CONTENT">
+                              <block type="variables_get" id="OmYBC00U?PE:pMI:tBQy">
+                                <field name="VAR">BTString</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="arduparser_parser" id="i(xbI}}n.U1/=+RW.p%`">
+                                <field name="parser_instance">BTParser</field>
+                                <value name="parser_string">
+                                  <block type="variables_get" id=";^iPrA^mZJX@(_6lBfV)">
+                                    <field name="VAR">BTString</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="arduparser_setentry" id="Iex9pJ?=)Cs,*7PuL`.T">
+                                    <field name="parser_instance">BTParser</field>
+                                    <value name="parser_entry">
+                                      <block type="io_highlow" id="3gNM];wQNo{H{.]ok@`G">
+                                        <field name="STATE">HIGH</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </statement>
+                    <statement name="ELSE">
+                      <block type="variables_set" id="7V.cji_wX!O8mc~A-ixx">
+                        <field name="VAR">BTData</field>
+                        <value name="VALUE">
+                          <block type="peeksoftwareserial" id="nTzYzL)+GwVjS#n0[~Xd">
+                            <field name="softwareSerial">comm</field>
+                            <field name="peek">FALSE</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="serial_print" id="9^-m;Srq+{;VuHQ3n,vF">
+                            <field name="SERIAL_ID">Serial</field>
+                            <field name="NEW_LINE">TRUE</field>
+                            <value name="CONTENT">
+                              <block type="variables_get" id="|1,40ELl5hl],fch~nGc">
+                                <field name="VAR">BTData</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="procedures_callnoreturn" id="W4-MXg^kCg^}SIBTlA4(">
+                                <mutation name="readBTChar">
+                                  <arg name="letter"></arg>
+                                </mutation>
+                                <value name="ARG0">
+                                  <block type="variables_get" id="RRQ7PFQIKz)XO,Gd2WQ:">
+                                    <field name="VAR">BTData</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </statement>
+                  </block>
+                </next>
+              </block>
+            </statement>
+            <next>
+              <block type="procedures_callnoreturn" id="PAu9wP+kHeSbVtjQW[Kv">
+                <mutation name="readBTParser"></mutation>
+                <next>
+                  <block type="controls_if" id="LFp8b@Vs~y/,[mCgSK{X">
+                    <mutation elseif="1"></mutation>
+                    <value name="IF0">
+                      <block type="logic_compare" id="LHogAauwb*i!b@(@8)6f">
+                        <field name="OP">EQ</field>
+                        <value name="A">
+                          <block type="variables_get" id="IBLH6}H4Sf(O(!6%XDZS">
+                            <field name="VAR">status</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="text" id="Ft69/L93QP;KQdT!WCaA">
+                            <field name="TEXT">FOLLOW</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <statement name="DO0">
+                      <block type="procedures_callnoreturn" id="McG=zTxVq:66!H%X=Z#4">
+                        <mutation name="FollowLineMode"></mutation>
+                      </block>
+                    </statement>
+                    <value name="IF1">
+                      <block type="logic_compare" id="D3I|Z2lXG1cIjyuylk]n">
+                        <field name="OP">EQ</field>
+                        <value name="A">
+                          <block type="variables_get" id="HKm_DIIKzD7mPljRjCq2">
+                            <field name="VAR">status</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="text" id="C%ra(Am7KJIQ]Y)r5fpW">
+                            <field name="TEXT">BEETLE</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <statement name="DO1">
+                      <block type="procedures_callnoreturn" id="A~1Cw.=p00{#?[TpM*4v">
+                        <mutation name="LightMode"></mutation>
+                      </block>
+                    </statement>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="-S)PKk=U(MWA)YOL,v/{" x="-485" y="284">
+    <field name="NAME">turn_right</field>
+    <comment pinned="false" h="80" w="160">Describe this function...</comment>
+    <statement name="STACK">
+      <block type="procedures_callnoreturn" id="}Tft:/0)CKjL|%TF!TU=">
+        <mutation name="Servo_attach"></mutation>
+        <next>
+          <block type="servo_move" id="rfe3(YkUa1BOc].{f9|^">
+            <field name="servo_instance">LeftServo</field>
+            <value name="angle">
+              <block type="math_number" id="TP]RVlLT=0J0MKu4[cY@">
+                <field name="NUM">0</field>
+              </block>
+            </value>
+            <next>
+              <block type="servo_move" id="`WEnZ}4Sd#eOA6Ib!v1Q">
+                <field name="servo_instance">RightServo</field>
+                <value name="angle">
+                  <block type="math_number" id=".h*NAdHb,Pu~cYf?|)2h">
+                    <field name="NUM">0</field>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id=".4Uwkc*(eky:B])sWe[Q" x="741" y="328">
+    <mutation>
+      <arg name="letter"></arg>
+    </mutation>
+    <field name="NAME">readBTChar</field>
+    <comment pinned="false" h="80" w="160">Describe this function...</comment>
+    <statement name="STACK">
+      <block type="controls_if" id="-]Q)W!*ISBZGZ_GKj6}h">
+        <mutation elseif="8"></mutation>
+        <value name="IF0">
+          <block type="logic_compare" id="u]zl2RbsK97-210Te91b">
+            <field name="OP">EQ</field>
+            <value name="A">
+              <block type="variables_get" id=":}6sh.kz?}O)Y@ERe@1w">
+                <field name="VAR">letter</field>
+              </block>
+            </value>
+            <value name="B">
+              <block type="char_type" id="WGJ=SfbO5S-VsJgkB|Yc">
+                <field name="char">I</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO0">
+          <block type="serial_print" id="PYwG_cx3i@gelZ{L{4!T">
+            <field name="SERIAL_ID">Serial</field>
+            <field name="NEW_LINE">TRUE</field>
+            <value name="CONTENT">
+              <block type="text" id="jtk4*4|UX.o@ehl?~uPx">
+                <field name="TEXT">BEETLE MODE AUTOMATIC</field>
+              </block>
+            </value>
+            <next>
+              <block type="variables_set" id="^81!t._3@y/:`8Jva5p.">
+                <field name="VAR">status</field>
+                <value name="VALUE">
+                  <block type="text" id="*l!@6RD29)oiECxX-);N">
+                    <field name="TEXT">BEETLE</field>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <value name="IF1">
+          <block type="logic_compare" id="FkUA3)wV=gYkXLHy)0h7">
+            <field name="OP">EQ</field>
+            <value name="A">
+              <block type="variables_get" id="FOJso|a/E%mF*MFJF@bD">
+                <field name="VAR">letter</field>
+              </block>
+            </value>
+            <value name="B">
+              <block type="char_type" id="@r{}Lc;}x.4d(5r7.%H{">
+                <field name="char">G</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO1">
+          <block type="serial_print" id="iF@Fdl_z{9eAPe`D*0^L">
+            <field name="SERIAL_ID">Serial</field>
+            <field name="NEW_LINE">TRUE</field>
+            <value name="CONTENT">
+              <block type="text" id="rdP%Rr6yyk7s.(Elg?9c">
+                <field name="TEXT">FOLLOWLINES MODE AUTOMATIC</field>
+              </block>
+            </value>
+            <next>
+              <block type="variables_set" id="VdB5fu%~z4tE91tVsmyV">
+                <field name="VAR">status</field>
+                <value name="VALUE">
+                  <block type="text" id="awVi%/=KcY*3oaGMA/a+">
+                    <field name="TEXT">FOLLOW</field>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <value name="IF2">
+          <block type="logic_compare" id="Mko|rTs;=uHoVv[(gbW7">
+            <field name="OP">EQ</field>
+            <value name="A">
+              <block type="variables_get" id="eU;U(`5:kkKya!#H[+kY">
+                <field name="VAR">letter</field>
+              </block>
+            </value>
+            <value name="B">
+              <block type="char_type" id="2{2{v!l;3~v!`{q=3Zr3">
+                <field name="char">M</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO2">
+          <block type="serial_print" id="kdG6XqL[idG08nC^:}c#">
+            <field name="SERIAL_ID">Serial</field>
+            <field name="NEW_LINE">TRUE</field>
+            <value name="CONTENT">
+              <block type="text" id="h2sL#Af7wKzhz{F`9iYz">
+                <field name="TEXT">MANUAL CONTROL MODE ON</field>
+              </block>
+            </value>
+            <next>
+              <block type="variables_set" id="!vlIlP10d/[RXO6^N~HB">
+                <field name="VAR">status</field>
+                <value name="VALUE">
+                  <block type="text" id="Q?~VZZI^+u@b%?-C!3Hz">
+                    <field name="TEXT">MANUAL</field>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <value name="IF3">
+          <block type="logic_compare" id="6k1;o~O%LaD_:u/:|4V8">
+            <field name="OP">EQ</field>
+            <value name="A">
+              <block type="variables_get" id="j8f]`V2OJ3M1i_-J.5io">
+                <field name="VAR">letter</field>
+              </block>
+            </value>
+            <value name="B">
+              <block type="char_type" id="`Hl=[6NCq4ZM{(!`%rAn">
+                <field name="char">U</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO3">
+          <block type="procedures_callnoreturn" id=".oIwJqNY~p!{p{s!Ms9h">
+            <mutation name="forward"></mutation>
+          </block>
+        </statement>
+        <value name="IF4">
+          <block type="logic_compare" id="/oyB4GM:C|B.q9XN0Ej}">
+            <field name="OP">EQ</field>
+            <value name="A">
+              <block type="variables_get" id="~J0MWn+y[AQ)D(yl?5(y">
+                <field name="VAR">letter</field>
+              </block>
+            </value>
+            <value name="B">
+              <block type="char_type" id="]1,(shO9l96Xsw/dN.~{">
+                <field name="char">D</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO4">
+          <block type="procedures_callnoreturn" id="0KbQOnZeakcZ93qxZ]bg">
+            <mutation name="backwards"></mutation>
+          </block>
+        </statement>
+        <value name="IF5">
+          <block type="logic_compare" id="2vE@kQ5^m.{t}ZjKB]gx">
+            <field name="OP">EQ</field>
+            <value name="A">
+              <block type="variables_get" id="lUDH=bl.?dY#+#*(asE6">
+                <field name="VAR">letter</field>
+              </block>
+            </value>
+            <value name="B">
+              <block type="char_type" id="glzO#5@={MxBkKE-=SG?">
+                <field name="char">L</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO5">
+          <block type="procedures_callnoreturn" id="w6a@iSGlTC%++z`nWksE">
+            <mutation name="turn_left"></mutation>
+          </block>
+        </statement>
+        <value name="IF6">
+          <block type="logic_compare" id="+iGDP+~CecK_]p%r[lQz">
+            <field name="OP">EQ</field>
+            <value name="A">
+              <block type="variables_get" id="t!w`Ax[d`|}d-PFv?XGE">
+                <field name="VAR">letter</field>
+              </block>
+            </value>
+            <value name="B">
+              <block type="char_type" id=",@rOgA#D3AYTEuUKkw|?">
+                <field name="char">R</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO6">
+          <block type="procedures_callnoreturn" id="rIeu.Eu4O;CL!]?!Ju|=">
+            <mutation name="turn_right"></mutation>
+          </block>
+        </statement>
+        <value name="IF7">
+          <block type="logic_compare" id="PL1K?U9:)F4u]RtB*|oW">
+            <field name="OP">EQ</field>
+            <value name="A">
+              <block type="variables_get" id="GG2KWe-QMX%?7pu)n`c)">
+                <field name="VAR">letter</field>
+              </block>
+            </value>
+            <value name="B">
+              <block type="char_type" id="%I(An;|4mR)JP-9j6E`p">
+                <field name="char">S</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO7">
+          <block type="procedures_callnoreturn" id="P#lRd*{~4pVpY*9Uzl!]">
+            <mutation name="stop"></mutation>
+          </block>
+        </statement>
+        <value name="IF8">
+          <block type="logic_compare" id="~7QGd0I,1jaWO15BTXzK">
+            <field name="OP">EQ</field>
+            <value name="A">
+              <block type="variables_get" id="e|%bS?A@8~%cPF}=E(*G">
+                <field name="VAR">letter</field>
+              </block>
+            </value>
+            <value name="B">
+              <block type="char_type" id="G8X5bYNLMz)P#=Zl_P!,">
+                <field name="char">C</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO8">
+          <block type="variables_set" id="N,(nI*XUi27l`{qYm=a3">
+            <field name="VAR">ClawValue</field>
+            <value name="VALUE">
+              <block type="variables_set_type" id="DKP4ASf@DAR=aT_.?xtV">
+                <field name="VARIABLE_SETTYPE_TYPE">NUMBER</field>
+                <value name="VARIABLE_SETTYPE_INPUT">
+                  <block type="toint" id="R,VkGGAR)zmfL9/~:}5W">
+                    <value name="str_input">
+                      <block type="readsoftwareserial" id="nmp_P#J^ex{Xf}9=ptyJ">
+                        <field name="softwareSerial">comm</field>
+                        <field name="readString">TRUE</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <next>
+              <block type="serial_print" id="x`?K@h,sQ5hAtF3W0KGC">
+                <field name="SERIAL_ID">Serial</field>
+                <field name="NEW_LINE">TRUE</field>
+                <value name="CONTENT">
+                  <block type="variables_get" id="/:FT6;HsNgnzR2d|Ks(N">
+                    <field name="VAR">ClawValue</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="servo_move" id="3dU9VhOOe8+R,X00vJZb">
+                    <field name="servo_instance">ClawServo</field>
+                    <value name="angle">
+                      <block type="base_map" id="sxuA7/4F~M8B1yjYF@^v">
+                        <value name="NUM">
+                          <block type="variables_get" id="c#G}bh.h}?_kBCtbgokB">
+                            <field name="VAR">ClawValue</field>
+                          </block>
+                        </value>
+                        <value name="BMIN">
+                          <block type="math_number" id="8JL:Z,I:kMh98=u%k`F`">
+                            <field name="NUM">10</field>
+                          </block>
+                        </value>
+                        <value name="BMAX">
+                          <block type="math_number" id="pqTXr8.(E1N[=qI.?M_i">
+                            <field name="NUM">55</field>
+                          </block>
+                        </value>
+                        <value name="DMIN">
+                          <block type="variables_get" id="1@6vH6*+~vJmZ;JeGd:S">
+                            <field name="VAR">ClawMin</field>
+                          </block>
+                        </value>
+                        <value name="DMAX">
+                          <block type="variables_get" id="YjTkrWca6o7|m/:GGi@k">
+                            <field name="VAR">ClawMax</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id=",E:D~+A6lS6QqQ*inVDv" x="-486" y="426">
+    <field name="NAME">stop</field>
+    <comment pinned="false" h="80" w="160">Describe this function...</comment>
+    <statement name="STACK">
+      <block type="servo_move" id="1sxXSF533)t6Nl[CX%}P">
+        <field name="servo_instance">LeftServo</field>
+        <value name="angle">
+          <block type="math_number" id="9l_8cdj!;MT2?l74|yhT">
+            <field name="NUM">90</field>
+          </block>
+        </value>
+        <next>
+          <block type="servo_move" id="U@zCxbC?2uolMIEk^Qe1">
+            <field name="servo_instance">RightServo</field>
+            <value name="angle">
+              <block type="math_number" id="Defh6Tf*1LogEi-LfDMs">
+                <field name="NUM">90</field>
+              </block>
+            </value>
+            <next>
+              <block type="procedures_callnoreturn" id="m%,-1n.fS{Gk|UG{k68T">
+                <mutation name="Servo_detach"></mutation>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="r}0fiE.~%)6yy`J}AshC" x="-487" y="570">
+    <field name="NAME">Servo_attach</field>
+    <comment pinned="false" h="80" w="160">Describe this function...</comment>
+    <statement name="STACK">
+      <block type="servo_attach" id=";0D`s0xnnp%{=b7ci5eT">
+        <field name="servo_instance">LeftServo</field>
+        <value name="servoPIN">
+          <block type="math_number" id="DR5ndpg9:A?Ljx#?,J)S">
+            <field name="NUM">9</field>
+          </block>
+        </value>
+        <next>
+          <block type="servo_attach" id="CCI+vQ.L^!H{ajG[zXIB">
+            <field name="servo_instance">RightServo</field>
+            <value name="servoPIN">
+              <block type="math_number" id="CllaP;T{odmGpc@B2AT[">
+                <field name="NUM">10</field>
+              </block>
+            </value>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="AwK5iQ%:v3*~,DJ{,Zr2" x="-488" y="670">
+    <field name="NAME">Servo_detach</field>
+    <comment pinned="false" h="80" w="160">Describe this function...</comment>
+    <statement name="STACK">
+      <block type="servo_move" id="G4|~dne?rP]Jw]qG/e}Z">
+        <field name="servo_instance">LeftServo</field>
+        <value name="angle">
+          <block type="math_number" id="B{]yITIal|@l@z`8izv=">
+            <field name="NUM">90</field>
+          </block>
+        </value>
+        <next>
+          <block type="servo_move" id="?lDG1*g4i_NS^Hs2xl]K">
+            <field name="servo_instance">RightServo</field>
+            <value name="angle">
+              <block type="math_number" id="jS?8+xBgyhf!Cx1uK6y%">
+                <field name="NUM">90</field>
+              </block>
+            </value>
+            <next>
+              <block type="servo_detach" id=";V{Z7oQG;POXSX}](FIf">
+                <field name="servo_instance">LeftServo</field>
+                <next>
+                  <block type="servo_detach" id="avfLGQ`#mmw,TPE}6Apc">
+                    <field name="servo_instance">RightServo</field>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="/-N),%:uOYYX!!B|L2F^" x="-977" y="876">
+    <mutation>
+      <arg name="clawdegrees"></arg>
+    </mutation>
+    <field name="NAME">moveClaw</field>
+    <comment pinned="false" h="80" w="160">Describe this function...</comment>
+    <statement name="STACK">
+      <block type="servo_move" id="Z39/c.4M`O]YcXGEW8DB">
+        <field name="servo_instance">ClawServo</field>
+        <value name="angle">
+          <block type="base_map" id="E4Pr}g-^EPLjf2Tx,V)[">
+            <value name="NUM">
+              <block type="variables_get" id="vpVER#h~Vm;uiL3=bsN8">
+                <field name="VAR">clawdegrees</field>
+              </block>
+            </value>
+            <value name="BMIN">
+              <block type="math_number" id="9ag!|P`Qkt[vV7MUf38p">
+                <field name="NUM">10</field>
+              </block>
+            </value>
+            <value name="BMAX">
+              <block type="math_number" id="}zdeL|i!:n%4#BWU*58a">
+                <field name="NUM">55</field>
+              </block>
+            </value>
+            <value name="DMIN">
+              <block type="variables_get" id="zfc8DTk0~Yhw;(Zj{[)B">
+                <field name="VAR">ClawMin</field>
+              </block>
+            </value>
+            <value name="DMAX">
+              <block type="variables_get" id="SX7G)9qajz1h//%`ZmMW">
+                <field name="VAR">ClawMax</field>
+              </block>
+            </value>
+          </block>
+        </value>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="~s=)W}b|gQ#(p3V*-zih" x="-706" y="996">
+    <field name="NAME">FollowLineMode</field>
+    <comment pinned="false" h="80" w="160">Describe this function...</comment>
+    <statement name="STACK">
+      <block type="controls_if" id="woYWcBzej!!B|9^=c6MJ">
+        <mutation else="1"></mutation>
+        <value name="IF0">
+          <block type="io_digitalread" id="ItMl2V4mw*3]pCsJS|}u">
+            <field name="PIN">4</field>
+          </block>
+        </value>
+        <statement name="DO0">
+          <block type="servo_move" id="k-sK+#jPn[7I3[4le;[1">
+            <field name="servo_instance">RightServo</field>
+            <value name="angle">
+              <block type="math_number" id=":GhKYp=v]Zm(fgbvJ%,S">
+                <field name="NUM">90</field>
+              </block>
+            </value>
+            <next>
+              <block type="servo_detach" id="hVYf!u-#Ne0w8GxrvI/l">
+                <field name="servo_instance">RightServo</field>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <statement name="ELSE">
+          <block type="servo_attach" id="Q*(#5+6yVouIo46}d@(P">
+            <field name="servo_instance">RightServo</field>
+            <value name="servoPIN">
+              <block type="math_number" id="Z]N@;8sPD3.S[WsaXar}">
+                <field name="NUM">10</field>
+              </block>
+            </value>
+            <next>
+              <block type="servo_move" id=":laWX*V{N*r;)Gm`X-n;">
+                <field name="servo_instance">RightServo</field>
+                <value name="angle">
+                  <block type="math_number" id="lsy?Zi#get9ej-kayS2%">
+                    <field name="NUM">180</field>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <next>
+          <block type="controls_if" id=",?,_wd#J3[oyNHwN:!Ln">
+            <mutation else="1"></mutation>
+            <value name="IF0">
+              <block type="io_digitalread" id="c}^b5#SGvUO:G-4+|6i?">
+                <field name="PIN">5</field>
+              </block>
+            </value>
+            <statement name="DO0">
+              <block type="servo_move" id="V3/W^iT@MuJYM@{9O`l*">
+                <field name="servo_instance">LeftServo</field>
+                <value name="angle">
+                  <block type="math_number" id="m(DT0V#|6RPjx*SLlbq}">
+                    <field name="NUM">90</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="servo_detach" id="!dXf*q8nmN)w-`40of_4">
+                    <field name="servo_instance">LeftServo</field>
+                  </block>
+                </next>
+              </block>
+            </statement>
+            <statement name="ELSE">
+              <block type="servo_attach" id="-_0i_9n#il-pDRrv}yu|">
+                <field name="servo_instance">LeftServo</field>
+                <value name="servoPIN">
+                  <block type="math_number" id="Q.[([{AE3{QCqc8GdV%k">
+                    <field name="NUM">9</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="servo_move" id="t,Z(0[#h}br~e5r-^b?a">
+                    <field name="servo_instance">LeftServo</field>
+                    <value name="angle">
+                      <block type="math_number" id="ker!Itlj]p1~6^O!Q_Tf">
+                        <field name="NUM">0</field>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="e7iN:n0e:mj*sdK,LH`," x="730" y="1193">
+    <field name="NAME">readBTParser</field>
+    <comment pinned="false" h="80" w="160">Describe this function...</comment>
+    <statement name="STACK">
+      <block type="controls_if" id="GhIA(DPuJf5lid~BC-.@">
+        <value name="IF0">
+          <block type="arduparser_entry" id="Mp**)wz1gi!%7Xa#t1+I">
+            <field name="parser_instance">BTParser</field>
+          </block>
+        </value>
+        <statement name="DO0">
+          <block type="variables_set" id="B%^UOK6)sjp*D0}slfZA">
+            <field name="VAR">ParserData1</field>
+            <value name="VALUE">
+              <block type="arduparser_dataarray" id="Hl^U|*e~?uD:w8c3:Uw`">
+                <field name="parser_instance">BTParser</field>
+                <value name="index">
+                  <block type="math_number" id="f/=A{z6,*5A-~2/b-P1]">
+                    <field name="NUM">0</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <next>
+              <block type="variables_set" id="GP0CJ}q+e|51befk;bP(">
+                <field name="VAR">ParserData2</field>
+                <value name="VALUE">
+                  <block type="arduparser_dataarray" id="`{-z4:=0+1}VYARbbg05">
+                    <field name="parser_instance">BTParser</field>
+                    <value name="index">
+                      <block type="math_number" id="P[7k4SfQcC8R)(wxT#k3">
+                        <field name="NUM">1</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <next>
+                  <block type="controls_if" id="ec[1rS%V3jzLdBZ.%]mY">
+                    <mutation elseif="2"></mutation>
+                    <value name="IF0">
+                      <block type="logic_compare" id="Jd!24i;/@-]RsQgmnxtT">
+                        <field name="OP">EQ</field>
+                        <value name="A">
+                          <block type="variables_get" id="}x~aFm}75pKk/|/!kD]b">
+                            <field name="VAR">ParserData1</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="text" id="-#p-a2-%LZ.4U]h3nRfB">
+                            <field name="TEXT">MOVE</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <statement name="DO0">
+                      <block type="variables_set" id="P5T4Ny4gGw9|SJ4P^k#d">
+                        <field name="VAR">status</field>
+                        <value name="VALUE">
+                          <block type="text" id="hK%q.YX5|!EQngBt}@UI">
+                            <field name="TEXT">MANUAL</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="controls_if" id="GCOj:~6#ErJvaHjD:op_">
+                            <mutation elseif="4"></mutation>
+                            <value name="IF0">
+                              <block type="logic_compare" id="{T@,fDkFzu!M=6c:ZRu{">
+                                <field name="OP">EQ</field>
+                                <value name="A">
+                                  <block type="variables_get" id="HLYcrClR#4UT3PfKv[c[">
+                                    <field name="VAR">ParserData2</field>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <block type="text" id="~C.hRV48)dC.!Q(bx0jJ">
+                                    <field name="TEXT">FORWARD</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <statement name="DO0">
+                              <block type="procedures_callnoreturn" id="VCG^4=MQ#fKOIpxrI%s~">
+                                <mutation name="forward"></mutation>
+                              </block>
+                            </statement>
+                            <value name="IF1">
+                              <block type="logic_compare" id="+v2Ct%4nImh9J[cW]TqY">
+                                <field name="OP">EQ</field>
+                                <value name="A">
+                                  <block type="variables_get" id="[48fO1@Oi4ICD5SraLvH">
+                                    <field name="VAR">ParserData2</field>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <block type="text" id="?.DI]i@+!.j(@keK`wG?">
+                                    <field name="TEXT">BACKWARDS</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <statement name="DO1">
+                              <block type="procedures_callnoreturn" id=".;4[z.,2{_rd9LW`BrY9">
+                                <mutation name="stop"></mutation>
+                              </block>
+                            </statement>
+                            <value name="IF2">
+                              <block type="logic_compare" id="OO}:BBx4:Ym1P#A.Q@2.">
+                                <field name="OP">EQ</field>
+                                <value name="A">
+                                  <block type="variables_get" id="9w.qJn|URab=[z913cs6">
+                                    <field name="VAR">ParserData2</field>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <block type="text" id="U?UoGr,zHguC_GHbSS]_">
+                                    <field name="TEXT">LEFT</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <statement name="DO2">
+                              <block type="procedures_callnoreturn" id="r]{aD6J6Jik=4VHUZ1k`">
+                                <mutation name="turn_left"></mutation>
+                              </block>
+                            </statement>
+                            <value name="IF3">
+                              <block type="logic_compare" id="HiF]U~UXY,~%O4[uA=;t">
+                                <field name="OP">EQ</field>
+                                <value name="A">
+                                  <block type="variables_get" id="T`z%j^g]C9A+lic=SM`T">
+                                    <field name="VAR">ParserData2</field>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <block type="text" id="3[XKTG=66Q[tD+4VLJr.">
+                                    <field name="TEXT">RIGHT</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <statement name="DO3">
+                              <block type="procedures_callnoreturn" id="C[?ZU|uQzuy^t}}efkF(">
+                                <mutation name="turn_right"></mutation>
+                              </block>
+                            </statement>
+                            <value name="IF4">
+                              <block type="logic_compare" id="C^L*l^LXzE#Ng`zL#bkh">
+                                <field name="OP">EQ</field>
+                                <value name="A">
+                                  <block type="variables_get" id=":SU%}fjPMNogNR*D~8B.">
+                                    <field name="VAR">ParserData2</field>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <block type="text" id="VaE}]S?)VN*;cuepH6)J">
+                                    <field name="TEXT">STOP</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <statement name="DO4">
+                              <block type="procedures_callnoreturn" id="(pfs-~=tymGco!ys4|K{">
+                                <mutation name="stop"></mutation>
+                              </block>
+                            </statement>
+                          </block>
+                        </next>
+                      </block>
+                    </statement>
+                    <value name="IF1">
+                      <block type="logic_compare" id="hm[MdI:%^B#bm`%htOV#">
+                        <field name="OP">EQ</field>
+                        <value name="A">
+                          <block type="variables_get" id="ODj`44=y%LF7_LjD8KTD">
+                            <field name="VAR">ParserData1</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="text" id="Xoe-r5G=%E)XuwS;+{9^">
+                            <field name="TEXT">STATUS</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <statement name="DO1">
+                      <block type="variables_set" id="!%D=K%,A0Q-W.{ql_Twj">
+                        <field name="VAR">status</field>
+                        <value name="VALUE">
+                          <block type="variables_get" id="~{=Q9ZX9OX6ANqIX{g)(">
+                            <field name="VAR">ParserData2</field>
+                          </block>
+                        </value>
+                      </block>
+                    </statement>
+                    <value name="IF2">
+                      <block type="logic_compare" id="RFHs5o/aB3tQ[Me%0!}w">
+                        <field name="OP">EQ</field>
+                        <value name="A">
+                          <block type="variables_get" id="S}jrR~PAd8,eUNbJx(yx">
+                            <field name="VAR">ParserData1</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="text" id="o!15Zu^KPD+5_V9xv1R]">
+                            <field name="TEXT">CLAW</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <statement name="DO2">
+                      <block type="procedures_callnoreturn" id="Z}yPPphQz)KO[9hNYPU/">
+                        <mutation name="moveClaw">
+                          <arg name="clawdegrees"></arg>
+                        </mutation>
+                        <value name="ARG0">
+                          <block type="arduparser_getnum" id="lzBjOv0d_HA=Ont-8r{M">
+                            <field name="parser_instance">BTParser</field>
+                            <field name="parser_number">getInt</field>
+                            <value name="index">
+                              <block type="math_number" id="6yT~coMAwJ`4moHe4}BJ">
+                                <field name="NUM">1</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                      </block>
+                    </statement>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="N4wxauZ#gnm_t73?fo1c" x="-703" y="1402">
+    <field name="NAME">LightMode</field>
+    <comment pinned="false" h="80" w="160">Describe this function...</comment>
+    <statement name="STACK">
+      <block type="variables_set" id="gACX_Sa|VW_(tPyiV;+?">
+        <field name="VAR">LDR_Left</field>
+        <value name="VALUE">
+          <block type="variables_set_type" id="j}@+c,]O%2/Dk@qwy-FM">
+            <field name="VARIABLE_SETTYPE_TYPE">NUMBER</field>
+            <value name="VARIABLE_SETTYPE_INPUT">
+              <block type="io_analogread" id="aRv,3TV-UrQtpxWnmfjd">
+                <field name="PIN">A0</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <next>
+          <block type="variables_set" id="zRF@C@.bCyfkOe%C1b+1">
+            <field name="VAR">LDR_Right</field>
+            <value name="VALUE">
+              <block type="variables_set_type" id="91uLz{28p,S)06;o-/;T">
+                <field name="VARIABLE_SETTYPE_TYPE">NUMBER</field>
+                <value name="VARIABLE_SETTYPE_INPUT">
+                  <block type="io_analogread" id="x_#6DOyV14*cM#E98w,K">
+                    <field name="PIN">A1</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <next>
+              <block type="variables_set" id="p%0Bbb3XUjIky~6R8Hji">
+                <field name="VAR">LDR_diff</field>
+                <value name="VALUE">
+                  <block type="math_arithmetic" id="@DNod~ZvPG~LRjJbM=!?">
+                    <field name="OP">MINUS</field>
+                    <value name="A">
+                      <block type="variables_get" id="veac?S(6RkI(b*3]iIAC">
+                        <field name="VAR">LDR_Left</field>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="variables_get" id="[sG9jEt|UI=X8;G!2rKl">
+                        <field name="VAR">LDR_Right</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <next>
+                  <block type="serial_print" id="U{o;vDde,@S(DAXPHvY(">
+                    <field name="SERIAL_ID">Serial</field>
+                    <field name="NEW_LINE">FALSE</field>
+                    <value name="CONTENT">
+                      <block type="variables_get" id="S5)|.Oc5w;{c4k8X`Na9">
+                        <field name="VAR">LDR_Left</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="serial_print" id="M%Ky}|1[9CP3l+/O6X{^">
+                        <field name="SERIAL_ID">Serial</field>
+                        <field name="NEW_LINE">FALSE</field>
+                        <value name="CONTENT">
+                          <block type="text" id="a5C9j{|m-_=,|@p!^On1">
+                            <field name="TEXT">,</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="serial_print" id="mUSh0hsuA*ArE2`r=GZ=">
+                            <field name="SERIAL_ID">Serial</field>
+                            <field name="NEW_LINE">TRUE</field>
+                            <value name="CONTENT">
+                              <block type="variables_get" id="bV5*PC)F1ACiCPe=n#3v">
+                                <field name="VAR">LDR_Right</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="controls_if" id="LhsNyA1H;@.lIqkQrG)v">
+                                <mutation elseif="2"></mutation>
+                                <value name="IF0">
+                                  <block type="logic_compare" id="lE8e@k5(zyYPul=f(PBx">
+                                    <field name="OP">GT</field>
+                                    <value name="A">
+                                      <block type="math_single" id="(w,oXS(+tz]jHEa%-uOD">
+                                        <field name="OP">ABS</field>
+                                        <value name="NUM">
+                                          <block type="variables_get" id="0^nmKshxt+}^j_]Ix7zW">
+                                            <field name="VAR">LDR_diff</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <value name="B">
+                                      <block type="variables_get" id="4rF!Fb?*L.V9.d4/KC-9">
+                                        <field name="VAR">threshold</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <statement name="DO0">
+                                  <block type="controls_if" id="R[3_~o,K,iEcsndrkG~?">
+                                    <mutation elseif="1"></mutation>
+                                    <value name="IF0">
+                                      <block type="logic_compare" id="vlR=Ke_JIRCz!Kg;!F=p">
+                                        <field name="OP">GT</field>
+                                        <value name="A">
+                                          <block type="variables_get" id="afDk4pO~sdddDl@Y(T%p">
+                                            <field name="VAR">LDR_diff</field>
+                                          </block>
+                                        </value>
+                                        <value name="B">
+                                          <block type="variables_get" id="Tp4B9w{_1p;-4.b{RY*X">
+                                            <field name="VAR">diff_threshold</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <statement name="DO0">
+                                      <block type="procedures_callnoreturn" id="Q9N}#1wP2DQg~UX=phrU">
+                                        <mutation name="turn_left"></mutation>
+                                      </block>
+                                    </statement>
+                                    <value name="IF1">
+                                      <block type="logic_compare" id="EJ;}1lccIcav/E|BUxyK">
+                                        <field name="OP">LT</field>
+                                        <value name="A">
+                                          <block type="variables_get" id="t[%upe2cIKZOK2/R3%#9">
+                                            <field name="VAR">LDR_diff</field>
+                                          </block>
+                                        </value>
+                                        <value name="B">
+                                          <block type="math_arithmetic" id="-,GdB/VF6(e;i-Lpbh.Y">
+                                            <field name="OP">MULTIPLY</field>
+                                            <value name="A">
+                                              <block type="variables_get" id="lQIJDxI2O#ug~_f]rZK6">
+                                                <field name="VAR">diff_threshold</field>
+                                              </block>
+                                            </value>
+                                            <value name="B">
+                                              <block type="math_number" id="GjEc]y`?`pH0#HOF[zaT">
+                                                <field name="NUM">-1</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <statement name="DO1">
+                                      <block type="procedures_callnoreturn" id="UQwr(e!GAt9nO{(M~qPi">
+                                        <mutation name="turn_right"></mutation>
+                                      </block>
+                                    </statement>
+                                  </block>
+                                </statement>
+                                <value name="IF1">
+                                  <block type="logic_operation" id="E1-,zkHNj,adv0@+ZC65">
+                                    <field name="OP">AND</field>
+                                    <value name="A">
+                                      <block type="logic_compare" id="e}yAxXGV~!lBkMyE;,ht">
+                                        <field name="OP">GT</field>
+                                        <value name="A">
+                                          <block type="variables_get" id="]V;qDo8|FB6{v?*Y{RwC">
+                                            <field name="VAR">LDR_Left</field>
+                                          </block>
+                                        </value>
+                                        <value name="B">
+                                          <block type="variables_get" id="_wdQeE||@ZbvvwG)BDem">
+                                            <field name="VAR">threshold</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <value name="B">
+                                      <block type="logic_compare" id="cEp6zhT(uODLf/nuw/Xw">
+                                        <field name="OP">GT</field>
+                                        <value name="A">
+                                          <block type="variables_get" id="Jwhn%er^X=@xs8{B#,!J">
+                                            <field name="VAR">LDR_Right</field>
+                                          </block>
+                                        </value>
+                                        <value name="B">
+                                          <block type="variables_get" id="5S.uJgdJjrchD]2b3uUg">
+                                            <field name="VAR">threshold</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <statement name="DO1">
+                                  <block type="procedures_callnoreturn" id="66Rw4SB]FGcPUI2*~ErV">
+                                    <mutation name="forward"></mutation>
+                                  </block>
+                                </statement>
+                                <value name="IF2">
+                                  <block type="logic_operation" id="m6@[}aBaZW#iSO6lp3B`">
+                                    <field name="OP">AND</field>
+                                    <value name="A">
+                                      <block type="logic_compare" id="{YKaY:8KHh}yeC40lVQm">
+                                        <field name="OP">LT</field>
+                                        <value name="A">
+                                          <block type="variables_get" id="|@o-|f4ByfW`.Ep[pTgd">
+                                            <field name="VAR">LDR_Left</field>
+                                          </block>
+                                        </value>
+                                        <value name="B">
+                                          <block type="variables_get" id="MR3,vlZ!*1rhf!J{v_6x">
+                                            <field name="VAR">threshold</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <value name="B">
+                                      <block type="logic_compare" id="4Nl2Bt?28XMg9AkKom5g">
+                                        <field name="OP">LT</field>
+                                        <value name="A">
+                                          <block type="variables_get" id="9(b4K4b0iJ/02AprLqDI">
+                                            <field name="VAR">LDR_Right</field>
+                                          </block>
+                                        </value>
+                                        <value name="B">
+                                          <block type="variables_get" id="ZXi}XA]Lp=fEZDlH0e-y">
+                                            <field name="VAR">threshold</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <statement name="DO2">
+                                  <block type="procedures_callnoreturn" id="dxf6fE67VAb;SS^jG8@w">
+                                    <mutation name="stop"></mutation>
+                                  </block>
+                                </statement>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+</xml>

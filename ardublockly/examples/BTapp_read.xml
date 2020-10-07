@@ -1,0 +1,169 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="serial_setup" id="edYjz:/@ht#n-irCMl+(" x="30" y="7">
+    <field name="SERIAL_ID">Serial</field>
+    <field name="SPEED">9600</field>
+  </block>
+  <block type="ss_setup" id="`G5ar-4!,hnR{V,P~N)Q" x="31" y="46">
+    <field name="ss_instance">comm</field>
+    <field name="ss_bps">9600</field>
+    <value name="RX">
+      <block type="math_number" id="s.e40,AkZ2{FvzWtR(2I">
+        <field name="NUM">2</field>
+      </block>
+    </value>
+    <value name="TX">
+      <block type="math_number" id="xb_3aZ;.d[unhX=^.:2F">
+        <field name="NUM">3</field>
+      </block>
+    </value>
+  </block>
+  <block type="arduino_functions" id="X3y_KRbk~=WmPJ?HEpa%" inline="true" x="30" y="133">
+    <statement name="SETUP_FUNC">
+      <block type="variables_set" id="ZCBfFyEr+*UekWQ58q[2">
+        <field name="VAR">BT_data</field>
+        <value name="VALUE">
+          <block type="variables_set_type" id="XGv#KQu6P!qGEL`=4Nxh">
+            <field name="VARIABLE_SETTYPE_TYPE">TEXT</field>
+            <value name="VARIABLE_SETTYPE_INPUT">
+              <block type="text" id="RKfs?Ot5Gl}8h{;BK}3l">
+                <field name="TEXT"></field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <next>
+          <block type="variables_set" id="N?D3{:yEoyGf5[X2lJo1">
+            <field name="VAR">estado_anterior</field>
+            <value name="VALUE">
+              <block type="variables_set_type" id="k[IGOh#|#NkkN12=7}WW">
+                <field name="VARIABLE_SETTYPE_TYPE">BOOLEAN</field>
+                <value name="VARIABLE_SETTYPE_INPUT">
+                  <block type="logic_boolean" id="J2VKZuJikDvI4l;U?(*V">
+                    <field name="BOOL">FALSE</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <next>
+              <block type="servo_attach" id="2+RLCj+di5aTfZ+CN;=+">
+                <field name="servo_instance">motor</field>
+                <value name="servoPIN">
+                  <block type="math_number" id="X-6yz*3+c?%aix/EA4lR">
+                    <field name="NUM">5</field>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <statement name="LOOP_FUNC">
+      <block type="controls_if" id="l]c)T,Ezz_samn`!MNb5">
+        <value name="IF0">
+          <block type="ss_available" id=",Jt[zwoJF%!ii7Y+Uz)y">
+            <field name="ss_instance">comm</field>
+          </block>
+        </value>
+        <statement name="DO0">
+          <block type="variables_set" id="|EMx9@:a/;skY*=@AiGN">
+            <field name="VAR">BT_data</field>
+            <value name="VALUE">
+              <block type="readsoftwareserial" id="4;AkW5JfOM]wsLbOzbfp">
+                <field name="softwareSerial">comm</field>
+                <field name="readString">TRUE</field>
+              </block>
+            </value>
+            <next>
+              <block type="serial_print" id="n@f{*DBM}Rnk9U]VM]Sw">
+                <field name="SERIAL_ID">Serial</field>
+                <field name="NEW_LINE">TRUE</field>
+                <value name="CONTENT">
+                  <block type="variables_get" id="DM3^o9]EJmZ!%KoUW~aI">
+                    <field name="VAR">BT_data</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="servo_move" id="8fv}!IwuHmEk^KPYISfW">
+                    <field name="servo_instance">motor</field>
+                    <value name="angle">
+                      <block type="string_to" id="}RoxDB?|`oxNQpwX;Q`E">
+                        <field name="format">toInt</field>
+                        <value name="str_input">
+                          <block type="variables_get" id=";Cz)zbQnbT2X6ZL/dkhu">
+                            <field name="VAR">BT_data</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <next>
+          <block type="set_event" id="g?42st6x3/;Kj}F=By_J">
+            <field name="operator">!=</field>
+            <value name="input">
+              <block type="read_digital_input" id="7e6V=V9W75tbRkC.}VQX">
+                <value name="pin">
+                  <block type="math_number" id=".nR2)gf1|%D#d-2Cr3D#">
+                    <field name="NUM">10</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <value name="var">
+              <block type="variables_get" id="lr=Pac?T2MlGrhL-fmg%">
+                <field name="VAR">estado_anterior</field>
+              </block>
+            </value>
+            <statement name="action">
+              <block type="controls_if" id="Vs|/3wV19@AB0Mwm`tH[">
+                <mutation else="1"></mutation>
+                <value name="IF0">
+                  <block type="logic_compare" id="I4OU5YGSjZ_vds_7Z6.@">
+                    <field name="OP">EQ</field>
+                    <value name="A">
+                      <block type="variables_get" id="qIr2wLz5HJ!:BZae*TSq">
+                        <field name="VAR">estado_anterior</field>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="logic_boolean" id="da#3wcz.SPlFG{^W,MU8">
+                        <field name="BOOL">TRUE</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <statement name="DO0">
+                  <block type="ss_print" id="A.CnAxlg!|WLLgn@?EQ*">
+                    <field name="ss_instance">comm</field>
+                    <field name="NEW_LINE">TRUE</field>
+                    <value name="CONTENT">
+                      <block type="text" id="fMu9xe?}~vrtyg|3t*dD">
+                        <field name="TEXT">ON</field>
+                      </block>
+                    </value>
+                  </block>
+                </statement>
+                <statement name="ELSE">
+                  <block type="ss_print" id="(~Nr]!SCgfma=MqRQ,s8">
+                    <field name="ss_instance">comm</field>
+                    <field name="NEW_LINE">TRUE</field>
+                    <value name="CONTENT">
+                      <block type="text" id="RI{s5o{tCQ5o{GlDOibn">
+                        <field name="TEXT">OFF</field>
+                      </block>
+                    </value>
+                  </block>
+                </statement>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+</xml>
