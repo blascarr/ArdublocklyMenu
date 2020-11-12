@@ -153,6 +153,379 @@ Ardublockly.TOOLBOX_XML =
 '  </category>' +
 '  <sep></sep>' +
 '  <category id="catFunctions" name="Functions" custom="PROCEDURE"></category>' +
+'  <category id="catMVC" name="MVC">' +
+'  <category id="catMVCIO" name="LCD Encoder">' +
+'	<block type="liquidcrystal">'+
+'      <value name="RS">' +
+'        <block type="math_number">' +
+'          <field name="NUM">2</field>' +
+'        </block>' +
+'      </value>' +
+'      <value name="EN">' +
+'        <block type="math_number">' +
+'          <field name="NUM">3</field>' +
+'        </block>' +
+'      </value>' +
+'      <value name="PIN4">' +
+'        <block type="math_number">' +
+'          <field name="NUM">4</field>' +
+'        </block>' +
+'      </value>' +
+'      <value name="PIN5">' +
+'        <block type="math_number">' +
+'          <field name="NUM">5</field>' +
+'        </block>' +
+'      </value>' +
+'      <value name="PIN6">' +
+'        <block type="math_number">' +
+'          <field name="NUM">6</field>' +
+'        </block>' +
+'      </value>' +
+'      <value name="PIN7">' +
+'        <block type="math_number">' +
+'          <field name="NUM">7</field>' +
+'        </block>' +
+'      </value>' +
+'      <value name="ROWS">' +
+'        <block type="math_number">' +
+'          <field name="NUM">20</field>' +
+'        </block>' +
+'      </value>' +
+'      <value name="COLS">' +
+'        <block type="math_number">' +
+'          <field name="NUM">4</field>' +
+'        </block>' +
+'      </value>' +
+'	</block>' +
+'	<block type="encoder">'+
+'      <value name="PINA">' +
+'        <block type="math_number">' +
+'          <field name="NUM">8</field>' +
+'        </block>' +
+'      </value>' +
+'      <value name="PINB">' +
+'        <block type="math_number">' +
+'          <field name="NUM">9</field>' +
+'        </block>' +
+'      </value>' +
+'      <value name="PRESS">' +
+'        <block type="math_number">' +
+'          <field name="NUM">10</field>' +
+'        </block>' +
+'      </value>' +
+'	</block>' +
+'	<block type="progressbar_instance">'+
+'      <value name="row">' +
+'        <block type="math_number">' +
+'          <field name="NUM">0</field>' +
+'        </block>' +
+'      </value>' +
+'      <value name="column">' +
+'        <block type="math_number">' +
+'          <field name="NUM">20</field>' +
+'        </block>' +
+'      </value>' +
+'	</block>' +
+'	<block type="progressbar_setminmax">'+
+'      <value name="Value">' +
+'        <block type="math_number">' +
+'          <field name="NUM">100</field>' +
+'        </block>' +
+'      </value>' +
+'	</block>' +
+'	<block type="progressbar_drawvalue">'+
+'      <value name="Value">' +
+'        <block type="math_number">' +
+'          <field name="NUM">35</field>' +
+'        </block>' +
+'      </value>' +
+'	</block>' +
+'	<block type="keyboard">'+
+'      <value name="f1">' +
+'        <block type="math_number">' +
+'          <field name="NUM">9</field>' +
+'        </block>' +
+'      </value>' +
+'      <value name="f2">' +
+'        <block type="math_number">' +
+'          <field name="NUM">2</field>' +
+'        </block>' +
+'      </value>' +
+'      <value name="f3">' +
+'        <block type="math_number">' +
+'          <field name="NUM">3</field>' +
+'        </block>' +
+'      </value>' +
+'      <value name="f4">' +
+'        <block type="math_number">' +
+'          <field name="NUM">4</field>' +
+'        </block>' +
+'      </value>' +
+'      <value name="c1">' +
+'        <block type="math_number">' +
+'          <field name="NUM">5</field>' +
+'        </block>' +
+'      </value>' +
+'      <value name="c2">' +
+'        <block type="math_number">' +
+'          <field name="NUM">6</field>' +
+'        </block>' +
+'      </value>' +
+'      <value name="c3">' +
+'        <block type="math_number">' +
+'          <field name="NUM">7</field>' +
+'        </block>' +
+'      </value>' +
+'      <value name="c4">' +
+'        <block type="math_number">' +
+'          <field name="NUM">8</field>' +
+'        </block>' +
+'      </value>' +
+'	</block>' +
+'  </category>' +
+'  <sep></sep>' +
+'  <category id="catArduinoMenu" name="ArduinoMenu">' +
+'    <block type="menu">'+
+'      <value name="TITLE">' +
+'        	<block type="text">'+
+'				<field name="TEXT">Main_Menu</field>'+
+'			</block>' +
+'      </value>' +
+'      <value name="menu_action">' +
+'        <block type="donothing"></block>' +
+'      </value>' +
+'		<statement name="values">'+
+'			<block type="op">'+
+'        <field name="event">noEvent</field>'+
+'        <value name="OP">'+
+'          <block type="text">'+
+'            <field name="TEXT">Option 1</field>'+
+'          </block>'+
+'        </value>'+
+'        <value name="menu_action">'+
+'          <block type="donothing"></block>'+
+'        </value>'+
+'        <next>'+
+'        <block type="exit">'+
+'            <value name="EXIT">'+
+'              <block type="text">'+
+'                <field name="TEXT">&lt;Back</field>'+
+'          </block>'+
+'            </value>'+
+'          </block>'+
+'        </next>'+
+'      </block>'+
+'      </statement>'+
+'	</block>' +
+'    <block type="nav_poll"></block>' +
+'    <block type="ardumenu_defnoreturn"></block>' +
+'    <block type="op">'+
+'      <value name="OP">' +
+'        <block type="text"></block>' +
+'      </value>' +
+'      <value name="menu_action">' +
+'        <block type="donothing"></block>' +
+'      </value>' +
+'	</block>' +
+'    <block type="value">'+
+'      <value name="value">' +
+'        <block type="text"></block>' +
+'      </value>' +
+'      <value name="pos">' +
+'        <block type="math_number">' +
+'          <field name="NUM">1</field>' +
+'        </block>' +
+'      </value>' +
+'      <value name="menu_action">' +
+'        <block type="donothing"></block>' +
+'      </value>' +
+'	</block>' +
+'	<block type="exit">'+
+'      <value name="EXIT">' +
+'        <block type="text"></block>' +
+'      </value>' +
+'	</block>' +
+'    <block type="field">'+
+'			<value name="selector">'+
+'				<block type="variables_get">'+
+'					<field name="VAR">item</field>'+
+'				</block>'+
+'			</value>'+
+'      <value name="FIELD">' +
+'        <block type="text"></block>' +
+'      </value>' +
+'      <value name="MIN">' +
+'        <block type="math_number">' +
+'          <field name="NUM">0</field>' +
+'        </block>' +
+'      </value>' +
+'      <value name="MAX">' +
+'        <block type="math_number">' +
+'          <field name="NUM">100</field>' +
+'        </block>' +
+'      </value>' +
+'      <value name="Interval">' +
+'        <block type="math_number">' +
+'          <field name="NUM">1</field>' +
+'        </block>' +
+'      </value>' +
+'      <value name="menu_action">' +
+'        <block type="donothing"></block>' +
+'      </value>' +
+'	</block>' +
+'		<block type="select">'+
+'			<value name="selector">'+
+'				<block type="variables_get">'+
+'					<field name="VAR">item</field>'+
+'				</block>'+
+'			</value>'+
+'      <value name="TITLE">' +
+'        <block type="text"></block>' +
+'      </value>' +
+'      <value name="menu_action">' +
+'        <block type="donothing"></block>' +
+'      </value>' +
+'		<statement name="values">'+
+'      		<block type="value">'+
+'        		<field name="event">noEvent</field>'+
+'        		<value name="value">'+
+'          			<block type="text">'+
+'            			<field name="TEXT">First Value</field>'+
+'          			</block>'+
+'        		</value>'+
+'        		<value name="pos">'+
+'          			<block type="math_number">'+
+'            			<field name="NUM">1</field>'+
+'          			</block>'+
+'          		</value>'+
+'        		<value name="menu_action">'+
+'          			<block type="donothing"></block>'+
+'        		</value>'+
+'        		<next>'+
+'          		<block type="value">'+
+'            		<field name="event">noEvent</field>'+
+'            		<value name="value">'+
+'              			<block type="text">'+
+'                			<field name="TEXT">Second Value</field>'+
+'              			</block>'+
+'           		</value>'+
+'            		<value name="pos">'+
+'              			<block type="math_number">'+
+'                			<field name="NUM">2</field>'+
+'              			</block>'+
+'            		</value>'+
+'            		<value name="menu_action">'+
+'              			<block type="donothing"></block>'+
+'            		</value>'+
+'          		</block>'+
+'        	</next>'+
+'      	</block>'+
+'	</statement>'+
+'	</block>' +
+'    <block type="toggle">'+
+'			<value name="toggle">'+
+'				<block type="variables_get">'+
+'					<field name="VAR">item</field>'+
+'				</block>'+
+'			</value>'+
+'      <value name="TITLE">' +
+'        <block type="text"></block>' +
+'      </value>' +
+'      <value name="menu_action">' +
+'        <block type="donothing"></block>' +
+'      </value>' +
+'		<statement name="values">'+
+'      		<block type="value">'+
+'        		<field name="event">noEvent</field>'+
+'        		<value name="value">'+
+'          			<block type="text">'+
+'            			<field name="TEXT">First Value</field>'+
+'          			</block>'+
+'        		</value>'+
+'        		<value name="pos">'+
+'          			<block type="math_number">'+
+'            			<field name="NUM">1</field>'+
+'          			</block>'+
+'          		</value>'+
+'        		<value name="menu_action">'+
+'          			<block type="donothing"></block>'+
+'        		</value>'+
+'        		<next>'+
+'          		<block type="value">'+
+'            		<field name="event">noEvent</field>'+
+'            		<value name="value">'+
+'              			<block type="text">'+
+'                			<field name="TEXT">Second Value</field>'+
+'              			</block>'+
+'           		</value>'+
+'            		<value name="pos">'+
+'              			<block type="math_number">'+
+'                			<field name="NUM">2</field>'+
+'              			</block>'+
+'            		</value>'+
+'            		<value name="menu_action">'+
+'              			<block type="donothing"></block>'+
+'            		</value>'+
+'          		</block>'+
+'        	</next>'+
+'      	</block>'+
+'	</statement>'+
+'	</block>' +
+'    <block type="choose">'+
+'			<value name="choose">'+
+'				<block type="variables_get">'+
+'					<field name="VAR">item</field>'+
+'				</block>'+
+'			</value>'+
+'      <value name="TITLE">' +
+'        <block type="text"></block>' +
+'      </value>' +
+'      <value name="menu_action">' +
+'        <block type="donothing"></block>' +
+'      </value>' +
+'		<statement name="values">'+
+'      		<block type="value">'+
+'        		<field name="event">noEvent</field>'+
+'        		<value name="value">'+
+'          			<block type="text">'+
+'            			<field name="TEXT">First Value</field>'+
+'          			</block>'+
+'        		</value>'+
+'        		<value name="pos">'+
+'          			<block type="math_number">'+
+'            			<field name="NUM">1</field>'+
+'          			</block>'+
+'          		</value>'+
+'        		<value name="menu_action">'+
+'          			<block type="donothing"></block>'+
+'        		</value>'+
+'        		<next>'+
+'          		<block type="value">'+
+'            		<field name="event">noEvent</field>'+
+'            		<value name="value">'+
+'              			<block type="text">'+
+'                			<field name="TEXT">Second Value</field>'+
+'              			</block>'+
+'           		</value>'+
+'            		<value name="pos">'+
+'              			<block type="math_number">'+
+'                			<field name="NUM">2</field>'+
+'              			</block>'+
+'            		</value>'+
+'            		<value name="menu_action">'+
+'              			<block type="donothing"></block>'+
+'            		</value>'+
+'          		</block>'+
+'        	</next>'+
+'      	</block>'+
+'		</statement>'+
+'		</block>' +
+'    	<block type="submenu">'+
+'		</block>' +
+'    	<block type="donothing"></block>' +
+' 	</category>' +
+'  <sep></sep>' +
+' </category>' +
 '  <sep></sep>' +
 '  <category id="catComms" name="Comms">' +
 '    <block type="serial_setup"></block>' +
@@ -504,43 +877,7 @@ Ardublockly.TOOLBOX_XML =
 '    </block>' +
 '    <block type="io_notone"></block>' +
 '	</category>'+
-'  <sep></sep>' +
-'  <category id="catParser" name="Parser">' +
-'    <block type="arduparser_setup">'+
-'      <value name="START_CMD">' +
-'        <block type="text"></block>' +
-'      </value>' +
-'      <value name="DELIMITER_CMD">' +
-'        <block type="text"></block>' +
-'      </value>' +
-'      <value name="END_CMD">' +
-'        <block type="text"></block>' +
-'      </value>' +
-'	 </block>' +
-'    <block type="arduparser_parser"></block>' +
-'    <block type="arduparser_dataarray">'+
-'		<value name="index">' +
-'			<block type="math_number">' +
-'				<field name="NUM">0</field>' +
-'			</block>' +
-'		</value>' +
-'	 </block>' +
-'    <block type="arduparser_getnum">'+
-'		<value name="index">' +
-'			<block type="math_number">' +
-'				<field name="NUM">0</field>' +
-'			</block>' +
-'		</value>' +
-'	 </block>' +
-'    <block type="arduparser_entry"></block>' +
-'    <block type="arduparser_setentry">'+
-'		<value name="parser_entry">' +
-'			<block type="io_highlow">' +
 
-'			</block>' +
-'		</value>' +
-'	 </block>' +
-'  </category>' +
 '  <sep></sep>' +
 '  <category id="catColor" name="TCS3200">' +
 '    <block type="tcs3200_basicsetup">' +
@@ -672,6 +1009,7 @@ Ardublockly.TOOLBOX_XML =
 '	 </block>' +
 '	</category>' +
 '  <sep></sep>' +
+'  <category id="catMemory" name="Memory">' +
 '  <category id="catSD" name="SD">' +
 '    <block type="sd_setup"></block>' +
 '    <block type="sd_open">'+
@@ -719,7 +1057,11 @@ Ardublockly.TOOLBOX_XML =
 '      </value>' +
 '	 </block>' +
 '  </category>' +
+'  <category id="catEEPROM" name="EEPROM">' +
+'  </category>' +
+'  </category>' +
 '  <sep></sep>' +
+'  <category id="catSignalControl" name="Signal Control">' +
 '  <category id="catPID" name="PID">' +
 '    <block type="pid_setup"></block>' +
 '    <block type="pid_compute"></block>' +
@@ -729,6 +1071,88 @@ Ardublockly.TOOLBOX_XML =
 '    <block type="pid_settime"></block>' +
 '  </category>' +
 '  <sep></sep>' +
+'  <category id="catKalman" name="Kalman">' +
+'    <block type="kalman_filter">'+
+'      <value name="e_mean">' +
+'        <block type="math_number">' +
+'          <field name="NUM">100</field>' +
+'        </block>' +
+'      </value>' +
+'      <value name="e_est">' +
+'        <block type="math_number">' +
+'          <field name="NUM">50</field>' +
+'        </block>' +
+'      </value>' +
+'      <value name="q">' +
+'        <block type="math_number">' +
+'          <field name="NUM">0.1</field>' +
+'        </block>' +
+'      </value>' +
+'	</block>' +
+'    <block type="update_kalman">'+
+'	</block>' +
+'  </category>' +
+'  </category>' +
+'  <sep></sep>' +
+'  <category id="catChrono" name="Time">' +
+'    <block type="chrono_instance">'+
+'	</block>' +
+'    <block type="chrono_opt">'+
+'	</block>' +
+'    <block type="chrono_add">'+
+'      <value name="extra_time">' +
+'        <block type="math_number">' +
+'          <field name="NUM">1000</field>' +
+'        </block>' +
+'      </value>' +
+'	</block>' +
+'    <block type="chrono_elapsed">'+
+'	</block>' +
+'    <block type="chrono_haspassed">'+
+'      <value name="time">' +
+'        <block type="math_number">' +
+'          <field name="NUM">1000</field>' +
+'        </block>' +
+'      </value>' +
+'	</block>' +
+'    <block type="chrono_run">'+
+'	</block>' +
+
+'	<block type="controls_if" id="F-G?Tn5|;4C^*it4y3:R">'+
+'		<value name="IF0">'+
+'			<block type="chrono_haspassed" >'+
+'				<field name="chrono_instance">tempo</field>'+
+'				<value name="time">'+
+'					<block type="variables_get" >'+
+'						<field name="VAR">time_elapsed</field>'+
+'					</block>'+
+'				</value>'+
+'			</block>'+
+'		</value>'+
+'		<statement name="DO0">'+
+'			<block type="variables_set" >'+
+'				<field name="VAR">time_elapsed</field>'+
+'				<value name="VALUE">'+
+'				<block type="math_arithmetic" >'+
+'					<field name="OP">ADD</field>'+
+'					<value name="A">'+
+'						<block type="variables_get" >'+
+'						<field name="VAR">time_elapsed</field>'+
+'						</block>'+
+'					</value>'+
+'					<value name="B">'+
+'						<block type="math_number" >'+
+'							<field name="NUM">1000</field>'+
+'						</block>'+
+'					</value>'+
+'				</block>'+
+'				</value>'+
+'			</block>'+
+'		</statement>'+
+'	</block>'+
+'  </category>' +
+'  <sep></sep>' +
+'  <category id="catNFC_RFID" name="NFC/RFID">' +
 '  <category id="catNFC" name="NFC">' +
 '    <block type="pn532_setup"></block>' +
 '    <block type="pn532_uid"></block>' +
@@ -754,6 +1178,65 @@ Ardublockly.TOOLBOX_XML =
 '	 </block>' +
 '  </category>' +
 '  <sep></sep>' +
+'  <category id="catRFID" name="RFID">' +
+'    <block type="mfrc522_instance">'+
+'      <value name="ss_pin">' +
+'        <block type="math_number">' +
+'          <field name="NUM">9</field>' +
+'        </block>' +
+'      </value>' +
+'      <value name="rst_pin">' +
+'        <block type="math_number">' +
+'          <field name="NUM">10</field>' +
+'        </block>' +
+'      </value>' +
+'	</block>' +
+'    <block type="define_uid">'+
+'    <field name="uid_instance">card</field>'+
+'		<value name="byte_1">'+
+'			<block type="text" >'+
+'				<field name="TEXT">0x32</field>'+
+'			</block>'+
+'		</value>'+
+'		<value name="byte_2">'+
+'			<block type="text" >'+
+'				<field name="TEXT">0x76</field>'+
+'			</block>'+
+'		</value>'+
+'		<value name="byte_3">'+
+'			<block type="text" >'+
+'				<field name="TEXT">0x15</field>'+
+'			</block>'+
+'		</value>'+
+'		<value name="byte_4">'+
+'			<block type="text" >'+
+'				<field name="TEXT">0x1B</field>'+
+'			</block>'+
+'		</value>'+
+'	</block>' +
+'    <block type="mfrc522_dump">'+
+'	</block>' +
+'	<block type="controls_if" >'+
+'		<value name="IF0">'+
+'		<block type="mfrc522_iscard" >'+
+'			<field name="mfrc522_instance">reader</field>'+
+'		</block>'+
+'		</value>'+
+'	</block>'+
+
+'	<block type="controls_if" >'+
+'		<value name="IF0">'+
+'		<block type="mfrc522_compare_uid" >'+
+'			<field name="mfrc522_instance">reader</field>'+
+'			<field name="uid_instance">card</field>'+
+'		</block>'+
+'		</value>'+
+'	</block>'+
+
+'  </category>' +
+'  </category>' +
+'  <sep></sep>' +
+/*
 '  <category id="catEsplora" name="Esplora">' +
 '    <block type="esplora_bt"></block>' +
 '    <block type="esplora_rgb">'+
@@ -793,5 +1276,6 @@ Ardublockly.TOOLBOX_XML =
 '    <block type="esplora_microphone"></block>' +
 '    <block type="esplora_accelerometer"></block>' +
 '  </category>' +
+*/
 '  <sep></sep>' +
 '</xml>';

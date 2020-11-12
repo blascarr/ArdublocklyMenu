@@ -75,6 +75,7 @@ Blockly.Arduino.getArduinoType_=function(a){
 		case Blockly.Types.TEXT.typeId:return"String";
 		case Blockly.Types.CHARACTER.typeId:return"char";
 		case Blockly.Types.BOOLEAN.typeId:return"boolean";
+		//case Blockly.Types.MENU.typeId:return"menu";
 		/*case Blockly.Types.SOFTWARESERIAL.typeId:{
 			Blockly.Arduino.addInclude('ss', '#include <SoftwareSerial.h>');
 			return"SoftwareSerial";
@@ -133,6 +134,7 @@ Blockly.Arduino.getArduinoType_=function(a){
 		case Blockly.Types.ESP.typeId:{ESP8266.h>');
 			return"ESP8266";
 		}*/
+
 		case Blockly.Types.NULL.typeId:return"void";
 		case Blockly.Types.UNDEF.typeId:return"undef";
 		default:return"int"

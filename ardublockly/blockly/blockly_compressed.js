@@ -1349,6 +1349,9 @@ Blockly.Types.BOOLEAN=new Blockly.Type({typeId:"Boolean",typeMsgName:"ARD_TYPE_B
 Blockly.Types.SHORT_NUMBER=new Blockly.Type({typeId:"Short Number",typeMsgName:"ARD_TYPE_SHORT",compatibleTypes:[]});
 Blockly.Types.LARGE_NUMBER=new Blockly.Type({typeId:"Large Number",typeMsgName:"ARD_TYPE_LONG",compatibleTypes:[]});
 Blockly.Types.DECIMAL=new Blockly.Type({typeId:"Decimal",typeMsgName:"ARD_TYPE_DECIMAL",compatibleTypes:[Blockly.Types.BOOLEAN,Blockly.Types.SHORT_NUMBER,Blockly.Types.NUMBER,Blockly.Types.LARGE_NUMBER]});
+
+//Blockly.Types.MENU=new Blockly.Type({typeId:"Menu",typeMsgName:"ARD_TYPE_NULL",compatibleTypes:[]});
+
 Blockly.Types.ARRAY=new Blockly.Type({typeId:"Array",typeMsgName:"ARD_TYPE_ARRAY",compatibleTypes:[]});
 Blockly.Types.NULL=new Blockly.Type({typeId:"Null",typeMsgName:"ARD_TYPE_NULL",compatibleTypes:[]});
 Blockly.Types.UNDEF=new Blockly.Type({typeId:"Undefined",typeMsgName:"ARD_TYPE_UNDEF",compatibleTypes:[]});

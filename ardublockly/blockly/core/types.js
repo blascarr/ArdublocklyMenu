@@ -65,6 +65,13 @@ Blockly.Types.DECIMAL = new Blockly.Type({
                     Blockly.Types.LARGE_NUMBER]
 });
 
+/** Menu. */
+Blockly.Types.MENU = new Blockly.Type({
+  typeId: 'Menu',
+  typeMsgName: 'ARD_TYPE_MENU',
+  compatibleTypes: []
+});
+
 /** Array/List of items. */
 Blockly.Types.ARRAY = new Blockly.Type({
   typeId: 'Array',

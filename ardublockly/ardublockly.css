@@ -40,7 +40,7 @@ body {
 /*  Arduino Colours  */
 /*********************/
 .arduino_teal {
-  background-color: #00979C;
+  background-color: #189920;
 }
 .arduino_teal_dark {
   background-color: #006468;
@@ -263,7 +263,7 @@ ul.side-nav li.side-menu-end {
 }
 /* IDE output content text formatting */
 #content_ide_output .arduino_dialog_success {
-  color: #00979C;   /* arduino light teal */
+  color: #189920;   /* arduino light teal */
   font-size: 1.2rem;
   margin: 16px 0px 8px 0px;
 }
@@ -512,7 +512,7 @@ ul.side-nav li.side-menu-end {
   display: block;
 }
 .arduino_dialog_success {
-  color: #00979C;   /* arduino light teal */
+  color: #189920;   /* arduino light teal */
 }
 .arduino_dialog_failure {
   color: #E47128;   /* arduino orange */

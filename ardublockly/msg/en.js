@@ -115,5 +115,8 @@ Ardublockly.LOCALISED_TEXT = {
   catTFTCanvas: "TFT Canvas",
   catPID: "PID",
   catSD: "SD",
-  catRobo2Duino: "Robo2Duino"
+  catRobo2Duino: "Robo2Duino",
+  catDFPlayer: "DFPlayer",
+  catArduinoMenu: "ArduinoMenu",
+  catMVC: "MVC Controller"
 };

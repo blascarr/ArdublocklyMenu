@@ -24,6 +24,21 @@
   <script src="blascarr_blocks/blocks/arduparser.js"></script>
   <script src="blascarr_blocks/generators/arduparser.js"></script>
 
+  <script src="blascarr_blocks/blocks/mvc.js"></script>
+  <script src="blascarr_blocks/generators/mvc.js"></script>
+
+  <script src="blascarr_blocks/blocks/ardumenu.js"></script>
+  <script src="blascarr_blocks/generators/ardumenu.js"></script>
+
+  <script src="blascarr_blocks/blocks/kalman.js"></script>
+  <script src="blascarr_blocks/generators/kalman.js"></script>
+
+  <script src="blascarr_blocks/blocks/chrono.js"></script>
+  <script src="blascarr_blocks/generators/chrono.js"></script>
+
+  <script src="blascarr_blocks/blocks/mfrc522.js"></script>
+  <script src="blascarr_blocks/generators/mfrc522.js"></script>
+
   <script src="blascarr_blocks/blocks/nfc.js"></script>
   <script src="blascarr_blocks/generators/nfc.js"></script>
 
@@ -247,7 +262,107 @@
   </div>
 
   <xml id="startBlocks" xmlns="http://www.w3.org/1999/xhtml">
-    <block type="arduino_functions" id="X3y_KRbk~=WmPJ?HEpa%" inline="true" x="109" y="82"></block>
+      <block type="liquidcrystal" id="RAQ`N}1E1+d5)eUS]:)M" x="25" y="15">
+    <value name="RS">
+      <block type="math_number" id="6Og8{G@,UUa;XFX34VO9">
+        <field name="NUM">2</field>
+      </block>
+    </value>
+    <value name="EN">
+      <block type="math_number" id=":cX~za~m#dqt)qjAWK=Y">
+        <field name="NUM">3</field>
+      </block>
+    </value>
+    <value name="PIN4">
+      <block type="math_number" id="|b3EcM5pqz[D]9:+TC=l">
+        <field name="NUM">4</field>
+      </block>
+    </value>
+    <value name="PIN5">
+      <block type="math_number" id="iIzYzBGsJ|n!e{N[=d#D">
+        <field name="NUM">5</field>
+      </block>
+    </value>
+    <value name="PIN6">
+      <block type="math_number" id="v.{8Zamo79iG*_JTbi1m">
+        <field name="NUM">6</field>
+      </block>
+    </value>
+    <value name="PIN7">
+      <block type="math_number" id="/dqu[?]ev%3f]+EgRmKa">
+        <field name="NUM">7</field>
+      </block>
+    </value>
+    <value name="ROWS">
+      <block type="math_number" id=":,iWw`hdLv?;_h{8/u~g">
+        <field name="NUM">20</field>
+      </block>
+    </value>
+    <value name="COLS">
+      <block type="math_number" id="7i.4I;4%E8%@R,`hD-gA">
+        <field name="NUM">4</field>
+      </block>
+    </value>
+  </block>
+  <block type="encoder" id=";`./pi`iwjH2yJFn}XTH" x="28" y="76">
+    <value name="PINA">
+      <block type="math_number" id="x1H0NZCOFpS{hneTL:t)">
+        <field name="NUM">8</field>
+      </block>
+    </value>
+    <value name="PINB">
+      <block type="math_number" id="#dDO%A}U1lB%a!sTUZGr">
+        <field name="NUM">9</field>
+      </block>
+    </value>
+    <value name="PRESS">
+      <block type="math_number" id="Z9rr}@J3joFd]PRPfJrv">
+        <field name="NUM">10</field>
+      </block>
+    </value>
+  </block>
+  <block type="menu" id="sw3mZMHc.a4KY*2Yx[+W" x="28" y="129">
+    <field name="submenu_instance">mainMenu</field>
+    <field name="event">noEvent</field>
+    <field name="style">noStyle </field>
+    <value name="TITLE">
+      <block type="text" id="N_U8p-=sjgKSE7o{l}T8">
+        <field name="TEXT">Main_Menu</field>
+      </block>
+    </value>
+    <value name="menu_action">
+      <block type="donothing" id="_:@+5KN7rNXP3{]/H8#7"></block>
+    </value>
+    <statement name="values">
+      <block type="op" id="Xhs/9BIo2[i9`B6@),u8">
+        <field name="event">noEvent</field>
+        <value name="OP">
+          <block type="text" id="^:j?T@GM=4+@Ma).{[=x">
+            <field name="TEXT">Option 1</field>
+          </block>
+        </value>
+        <value name="menu_action">
+          <block type="donothing" id="YKp*?-,O?bhj|#(IeA%1"></block>
+        </value>
+        <next>
+          <block type="exit" id="aE%m@!+R7Ka6{HNW}il2">
+            <value name="EXIT">
+              <block type="text" id="tLp]tG56OFp5ys|hJk8g">
+                <field name="TEXT">&lt;Back</field>
+              </block>
+            </value>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="arduino_functions" id="X3y_KRbk~=WmPJ?HEpa%" inline="true" x="31" y="313">
+    <statement name="LOOP_FUNC">
+      <block type="nav_poll" id="NU%GJMp.;Hidv;zeQSn*">
+        <field name="submenu_instance">mainMenu</field>
+      </block>
+    </statement>
+  </block>
   </xml>
   
   <!-- IDE Output content -->
