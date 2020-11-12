@@ -98,8 +98,8 @@ limitations under the License.
 
 [desktop_screeshot]: http://carlosperate.github.io/ardublockly/images/screenshot_desktop_1.png
 [ardumenu]: /ardublockly/images/ArdublocklyMenu_index.png
-[lcd_smart_controller]: /images/lcd-smart-controller-display-adapter.jpg
+[lcd_smart_controller]: /ardublockly/images/lcd-smart-controller-display-adapter.jpg
 [lcd_EXP_Pinout]: /ardublockly/images/LCD_EXPConnectorPinout.jpg
-[event_function]: /ardublockly/images/EventFunction.jpg
-[output_event]: /ardublockly/images/output_event.jpg
-[using_events]: /ardublockly/images/using_output_event.jpg
+[event_function]: /ardublockly/images/EventFunction.png
+[output_event]: /ardublockly/images/output_event.png
+[using_events]: /ardublockly/images/using_output_event.png
