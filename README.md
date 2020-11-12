@@ -23,6 +23,37 @@ With this tool, we can create an interface [MVC](https://en.wikipedia.org/wiki/M
 * [SD Library](https://www.arduino.cc/en/Reference/SD) - For read/write access with SD card integration
 * [Interruption Attach](https://www.arduino.cc/reference/en/language/functions/external-interrupts/attachinterrupt/) - Interrupts for hardware control
 
+## Electronics
+
+In order to achieve a controller interface easily, it´s recommended to reuse an LCD Controller of 3D Printers. ( a.k.a. Reprap discount smart controller)
+This module integrates LCD Screen, Encoder and SD Card Reader.
+
+
+![Ardublockly Menu desktop program screenshot][lcd_smart_controller]
+
+Pinout by default can be connected in this way.
+![Pinout LCD EXP][lcd_EXP_Pinout]
+
+
+## Menu Definition
+
+For Menu projects you will need to add this blocks in order to instantiate LCD screen , Encoder in the pins connected and define a Menu Model and create the navigation model.
+
+![Ardublockly Menu desktop program screenshot][ardumenu]
+
+The next step is configure different events for actions when we press the encoder button. First, we need to add our Event function and what actions will execute.
+
+![Create an Event Function][event_function]
+
+![Digital Output Event][output_event]
+
+And Finally, we can replace doNothing method with our event declared that will appear in our list functions.
+![Ardublockly Menu desktop program screenshot][using_events]
+
+In the events we can add different actions to execute motor movements, play music, execute readings and update sensors or different actions programmed. 
+
+Important: Don´t use loops in events; otherwise lcd update screen output will be blocked.
+
 ## ¿What is Ardublockly?
 Ardublockly is a visual programming editor for Arduino. It is based on Google's [Blockly][1], which has been forked to generate [Arduino][15] code.
 
@@ -34,20 +65,14 @@ The `ArdublocklyServer` Python package initialises a local server to be able to 
 ![Ardublockly desktop program screenshot][desktop_screeshot]
 
 
-## Menu Definition
-
-A demo of the latest release of Ardublockly main interface can be found in the following two links (to load the code into an Arduino it requires the full Ardublockly application to be downloaded and run on your computer):
-
-
 
 ## Credit
-This project has been inspired by [BlocklyDuino][16].
+This project has been inspired by [Ardublockly][16].
 
 Blockly original source is Copyright of Google Inc. [https://developers.google.com/blockly/][1]. A list of changes to the Blockly fork can be found in the [Blockly subdirectory README][17] file.
 
 
 ## License
-Copyright (c) 2016 carlosperate https://github.com/carlosperate/
 
 Unless stated otherwise, the source code of this projects is
 licensed under the Apache License, Version 2.0 (the "License");
@@ -65,22 +90,16 @@ limitations under the License.
 
 [1]: https://developers.google.com/blockly/
 [2]: http://www.arduino.cc/en/main/software/
-[3]: TODO.md
 [4]: https://github.com/carlosperate/ardublockly/releases/
-[5]: https://github.com/carlosperate/ardublockly/wiki/Installing-Ardublockly
-[6]: https://github.com/carlosperate/ardublockly/wiki/Configure-Ardublockly
-[7]: https://github.com/carlosperate/ardublockly/wiki
-[8]: https://github.com/carlosperate/ardublockly/compare/blockly-original...master
 [9]: https://github.com/carlosperate/ardublockly/blob/master/LICENSE
-[10]: http://ardublockly.embeddedlog.com/demo/index.html
-[11]: http://ardublockly.embeddedlog.com/demo/classic/index.html
-[12]: http://ardublockly-builds.s3-website-us-west-2.amazonaws.com/index.html?prefix=linux/
-[13]: http://ardublockly-builds.s3-website-us-west-2.amazonaws.com/index.html?prefix=windows/
-[14]: http://ardublockly-builds.s3-website-us-west-2.amazonaws.com/index.html?prefix=mac/
 [15]: http://www.arduino.cc
 [16]: https://github.com/BlocklyDuino/BlocklyDuino
 [17]: blockly/README.md
 
 [desktop_screeshot]: http://carlosperate.github.io/ardublockly/images/screenshot_desktop_1.png
-[web_screenshot_responsive]: http://carlosperate.github.io/ardublockly/images/screenshot_material_all_small.jpg
-[web_screenshot_classic]: http://carlosperate.github.io/ardublockly/images/screenshot_1.png
+[ardumenu]: /ardublockly/images/ArdublocklyMenu_index.png
+[lcd_smart_controller]: /images/lcd-smart-controller-display-adapter.jpg
+[lcd_EXP_Pinout]: /ardublockly/images/LCD_EXPConnectorPinout.jpg
+[event_function]: /ardublockly/images/EventFunction.jpg
+[output_event]: /ardublockly/images/output_event.jpg
+[using_events]: /ardublockly/images/using_output_event.jpg
