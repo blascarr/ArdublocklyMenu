@@ -190,14 +190,14 @@ Blockly.Arduino['imu_read_data'] = function(block) {
 };
 
 Blockly.Arduino['imu_rawdata'] = function(block) {
-	var imu_instance = block.getFieldValue('imu_instance');
+	var IMU_instance = block.getFieldValue('imu_instance');
 	var IMU_device = block.getFieldValue('imu_device');
 	var IMU_axis = block.getFieldValue('imu_axis');
 	var count_dev,l_dev;
 	var axis;
 	
 	Blockly.Arduino.addInclude('mpu', '#include <IMU_MPU6050.h>',false);
-  	Blockly.Arduino.addDeclaration(imu_instance,'MPU6050 '+imu_instance+';',true);
+  	Blockly.Arduino.addDeclaration(IMU_instance,'MPU6050 '+IMU_instance+';',true);
 
 	if(IMU_device == 'Accelerometer'){
 		count_dev = 'accelCount';
@@ -217,7 +217,7 @@ Blockly.Arduino['imu_rawdata'] = function(block) {
 	}else if(IMU_axis == 'Z'){
 		axis = 2;
 	}
-	Blockly.Arduino.addDeclaration(imu_instance,'MPU6050 '+imu_instance+';',true);
+	Blockly.Arduino.addDeclaration(IMU_instance,'MPU6050 '+IMU_instance+';',true);
 
 	var imu_code ='(float)'+IMU_instance+'.'+count_dev+'['+axis+']*'+IMU_instance+'.'+l_dev+'Res';
 	return [imu_code, Blockly.Arduino.ORDER_ATOMIC];
